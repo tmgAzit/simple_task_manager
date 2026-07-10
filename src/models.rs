@@ -10,18 +10,14 @@ struct Task {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-enum Priority{
+enum Priority {
     High,
     Medium,
-    Low
+    Low,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 enum Status {
     Pending,
-    Completed
-}
-
-fn main() {
-    println!("Hello, world!");
+    Completed,
 }
