@@ -26,13 +26,13 @@ pub enum Status {
 }
 
 impl Task {
-    pub fn new(title: String) -> Self {
+    pub fn new(title: String, priority: Priority, due_date:Option<String>) -> Self {
         Self {
             id: Uuid::new_v4().to_string(),
             title,
             description: String::new(),
-            priority: Priority::Medium,
-            due_date: None,
+            priority,
+            due_date,
             status: Status::Pending,
             created_at: chrono::Local::now().to_rfc3339(), // DateTime stardardized string formate.
         }
