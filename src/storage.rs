@@ -1,7 +1,7 @@
 use crate::models::Task;
 
-use fs;
-use serde;
+use std::fs;
+use serde_json;
 
 const FILE_PATH: &str = "task.json";
 
@@ -10,7 +10,7 @@ pub fn load_tasks() -> Vec<Task> {
     match fs::read_to_string(FILE_PATH) {
         Ok(contents) => {
             if contents.trim().is_empty() {
-                vec![]
+                return vec![];
             };
             serde_json::from_str::<Vec<Task>>(&contents).unwrap_or_else(|_| vec![])
         }
